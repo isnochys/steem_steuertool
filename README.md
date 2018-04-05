@@ -38,3 +38,5 @@ Before first use, you have to edit the following line in steuertool.py:
 Change it to our steem username, save it and run it with
 
 ``(env)$ python steuertool.py``
+
+The output will be a CVS file ``steuer.cvs`` in the current directory, with STEEM transaction id, timestamp, type and amount in the selected currency as values per line
