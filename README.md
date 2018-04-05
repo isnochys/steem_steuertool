@@ -31,4 +31,10 @@ Clone the repository
 ``git clone https://github.com/isnochys/steem_steuertool.git``
 
 ## Usage
+Before first use, you have to edit the following line in steuertool.py:
+
+``username = 'isnochys'``
+
+Change it to our steem username, save it and run it with
+
 ``(env)$ python steuertool.py``
