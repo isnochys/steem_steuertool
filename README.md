@@ -1,14 +1,17 @@
 # SST: STEEM SteuerTool
 ## STEEM Steuertool / Tax tool for STEEM
 Mit diesem Tool kann eine Auflistung aller Eimkünfte aus der STEEM Blockchain erstellt werden, Ausgabe ist das csv Format zur weiteren Verarbeitung in einer Steuersoftware oder Tabellenkalulationsprogramm.
+
 This tool helps for the german tax law, mostly interesting for German STEEM users
 
 ## Requirements
 Python 3.6 mit steem-python installiert
+
 Python 3.6 with steem-python installed
 
 ## Installation
 Verzeichnis für SST und virtuelle Pythonumgebung erstellen 
+
 Create create a directory for gtw and a virtual environment for Python
 
 ``mkdir sst&&cd sst``
