@@ -14,6 +14,9 @@ def index(request):
 			username = request.POST['inputUsername']
 			context['username']=username
 			mdc,cre = Userlist.objects.get_or_create(username=username)
+			woc = Userlist.objects.filter(worker=True).count()
+			context['woc'] = woc
+			context['dauer'] = woc*15
 			if cre:
 				context['created'] = True
 			else:

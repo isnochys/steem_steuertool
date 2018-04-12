@@ -34,7 +34,11 @@
 	   <div class="container">
     {% if created or worker %}
 	Komm später wieder, dann haben wir alle Daten für {{ username }} gesammelt.<br>
+	{% if woc %}
+	Dies kan bis zu {{ dauer }} Minuten dauern, derzeit sind {{ woc }} Aufträge in der Warteschlange.
+	{% else %}
 	Dies kann bis zu 15 Minuten dauern.
+	{% endif %}
     {% elif username %}
 		{% for fname in files %}
 		<a href="{% get_media_prefix %}{{ fname }}">{{ fname }}</a><br>
