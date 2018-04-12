@@ -1,3 +1,6 @@
 
 *.pyc
 webservice/webservice/settingslocal.py
+webservice/sst/migration*
+*.sqlite3
+*.csv

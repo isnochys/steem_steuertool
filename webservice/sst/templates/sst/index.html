@@ -1,0 +1,49 @@
+    {# Load the tag library #}
+
+{% load i18n %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	{% include 'sst/head.html' %}
+  </head>
+
+  <body>
+	{% block navbar %}
+	{% endblock %}
+	{% block mainbody %}
+  
+       <div class="container">
+	   <h1>SST - STEEM SteuerTool</h1>
+	   </div>
+	   <div class="container">
+		<form method="POST" action="{% url 'index' %}" class="form-inline center">
+			{% csrf_token %}
+			
+    Steem Username: 
+  
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="inputUsername" class="sr-only">Username</label>
+    <input type="text" class="form-control" id="inputUsername" name="inputUsername" placeholder="Username">
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Starte Suche</button>
+		</form>
+	   </div>
+	   <div class="container">
+    {% if created or worker %}
+	Komm später wieder, dann haben wir alle Daten für {{ username }} gesammelt.<br>
+	Dies kann bis zu 15 Minuten dauern.
+    {% elif username %}
+		{% for fname in files %}
+		<a href="{% get_media_prefix %}{{ fname }}">{{ fname }}</a><br>
+		{% endfor %}
+    {% endif %}
+	{% endblock %}
+	</div>
+
+
+
+
+{% include 'sst/footer.html' %}
