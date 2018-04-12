@@ -8,6 +8,7 @@ from dateutil import parser
 import os.path
 import os
 from django.conf import settings
+import beem
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "webservice.settings")
 django.setup()
@@ -50,7 +51,11 @@ for uo in uul:
 		if lineList:
 			last_id = lineList[-1].split(';')[0]
 	s = Steem()
-	a = Account(username,s)
+	try:
+		a = Account(username,s)
+	except beem.exceptions.AccountDoesNotExistsException:
+		uo.delete()
+		continue
 	hrl = a.history_reverse(only_ops=['producer_reward','claim_reward_balance'])
 	historical_price ={}
 	rtaxl = {'complete':[]}
