@@ -10,6 +10,7 @@ import os
 from django.conf import settings
 import beem
 import random
+import time
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "webservice.settings")
 django.setup()
@@ -37,6 +38,7 @@ steemcre = True
 sbdcre = True
 while steemcre or sbdcre:
 	datum = str(timestamp.year)+"-"+str(timestamp.month)+"-"+str(timestamp.day)
+	print(datum)
 	steemdb, steemcre = Rates.objects.get_or_create(datum=datum,currency='STEEM')
 	sbddb, sbdcre = Rates.objects.get_or_create(datum=datum,currency='SBD')
 	if steemcre or sbdcre:
@@ -47,6 +49,7 @@ while steemcre or sbdcre:
 		sbddb.rate = sbdx
 		steemdb.save()
 		sbddb.save()
+	time.sleep(1)
 	timestamp -= timedelta(days=1)	
 		
 	
