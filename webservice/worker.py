@@ -9,6 +9,7 @@ import os.path
 import os
 from django.conf import settings
 import beem
+import random
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "webservice.settings")
 django.setup()
@@ -36,7 +37,7 @@ def get_exchange_rate(timestamp):
 now = datetime.utcnow()
 
 uul = Userlist.objects.filter(worker=True)
-
+random.shuffle(uul)
 for uo in uul:
 	username = uo.username
 	full_filename = username+'_complete.csv'
