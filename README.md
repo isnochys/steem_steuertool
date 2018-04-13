@@ -55,14 +55,14 @@ or with steem-python:
 The output will be a CVS file ``steuer.cvs`` in the current directory, with STEEM transaction id, timestamp, type and amount in the selected currency as values per line
 
 ## Webservice
-Directory ``webservice`` contains all necessary files to run it as a service on a webserver.
+Directory ``webservice`` contains all necessary files to run it as a service on a webserver under the django webframework.
 
 ### Installation
 Install a python environment and install the requirements:
 
 ``pip install -r requirements``
 
-Copy under webservice/webservice ``settingslocal_example.py`` to ``settingslocal.py`` and edit it accordingly.
+Copy under webservice/webservice ``settingslocal_example.py`` to ``settingslocal.py`` and edit it accordingly to your DB  settings.
 Migrate the DB with:
 
 ``python manage.py migrate``
@@ -74,3 +74,7 @@ Migrate the DB with:
 Set up a cronjob for worker.py with help of cron.sh, e.g:
 
 ``*/2 * * * * /bin/sh /home/sst/steem_steuertool/cron.sh -d /home/sst/steem_steuertool/webservice -p /home/sst/env/bin/python -e worker.py``
+
+Run it locally with:
+
+``python manage.py runserver``
