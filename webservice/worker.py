@@ -27,18 +27,23 @@ def get_x(cur, stamp):
 	
 def get_exchange_rate(timestamp):
 	datum = str(timestamp.year)+"-"+str(timestamp.month)+"-"+str(timestamp.day)
+	'''
 	if datum not in historical_price:
 		tmpstp = parser.parse(datum+' 00:00:00 UTC').timestamp()
 		steemx = get_x('STEEM',tmpstp)
 		sbdx = get_x('SBD',tmpstp)
 		historical_price[datum]={'STEEM':steemx,'SBD':sbdx}
 	ret = historical_price[datum]
-	return ret['STEEM'],ret['SBD']
+	'''
+	sbdr = Rates.objects.get(datum=datum,currency='SBD')
+	steemr = Rates.objects.get(datum=datum,currency='STEEM') 
+	#return ret['STEEM'],ret['SBD']
+	return float(steemr.rate),float(sbdr.rate)
 	
 now = datetime.utcnow()
 
 uul = Userlist.objects.filter(worker=True)
-#random.shuffle(uul)
+
 for uo in uul:
 	username = uo.username
 	full_filename = username+'_complete.csv'
