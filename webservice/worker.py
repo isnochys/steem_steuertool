@@ -22,6 +22,7 @@ def get_x(cur, stamp):
 	murl = 'https://min-api.cryptocompare.com/data/pricehistorical?fsym='+cur+'&tsyms='+currency+'&ts='+str(stamp)
 	f = requests.get(murl)
 	d=f.json()
+	print(d)
 	return d[cur][currency]#rate
 	
 def get_exchange_rate(timestamp):
