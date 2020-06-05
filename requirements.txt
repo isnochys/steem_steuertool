@@ -4,7 +4,7 @@ certifi==2018.1.18
 chardet==3.0.4
 click==6.7
 dateutils==0.6.6
-Django==2.0.4
+Django==2.2.13
 ecdsa==0.13
 Events==0.3
 future==0.16.0
